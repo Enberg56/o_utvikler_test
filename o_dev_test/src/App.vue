@@ -1,9 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppHeader from "./components/AppHeader.vue";
+</script>
 
 <template>
-  <header>
-    <div>message: 'Hello World!'</div>
-  </header>
-
+  <AppHeader />
   <main></main>
 </template>
