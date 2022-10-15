@@ -13,7 +13,7 @@
     </div>
     <div class="container displayRight">
       <button @click="fetchPersonListItems" class="reload">Reload</button>
-      <button class="save">Save</button>
+      <button @click="savePersonListArray" class="save">Save</button>
     </div>
   </main>
 </template>
@@ -48,6 +48,12 @@ const fetchPersonListItems = () => {
         return user;
       });
     });
+};
+
+const savePersonListArray = () => {
+  const data = JSON.stringify(users.value);
+  window.localStorage.setItem("usersFile", data);
+  // console.log(JSON.parse(window.localStorage.getItem("usersFile")));
 };
 
 const deleteUser = (userId: number): void => {
