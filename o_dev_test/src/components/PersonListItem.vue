@@ -23,7 +23,7 @@ import type { IUser } from "../interfaces/user";
 const props = defineProps<{
   name: string;
   id: number;
-  age: number;
+  age: number | "";
 }>();
 const emit = defineEmits<{
   (e: "delete", id: number): void;

@@ -9,10 +9,10 @@
           @delete="deleteUser"
         ></PersonListItem>
       </div>
-      <button class="addUser">+ Add</button>
+      <button @click="addInputFields" class="addUser">+ Add</button>
     </div>
     <div class="container displayRight">
-      <button class="reload">Reload</button>
+      <button @click="fetchPersonListItems" class="reload">Reload</button>
       <button class="save">Save</button>
     </div>
   </main>
@@ -24,20 +24,31 @@ import type { IUser } from "./interfaces/user";
 import PersonListItem from "./components/PersonListItem.vue";
 
 const users = ref<IUser[]>([]);
-const loading = ref(true);
+const loading = ref(false);
 onMounted(() => {
+  fetchPersonListItems();
+});
+
+const addInputFields = () => {
+  users.value.push({
+    name: "",
+    id: Date.parse(Date()) + Math.random() * 99,
+    age: "",
+  });
+};
+
+const fetchPersonListItems = () => {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((res) => res.json())
     .then((res) => {
       loading.value = false;
       users.value = res;
-
       users.value.map((user: IUser) => {
         user.age = Math.floor(Math.random() * 90);
         return user;
       });
     });
-});
+};
 
 const deleteUser = (userId: number): void => {
   const index = users.value.findIndex((user) => user.id === userId);
