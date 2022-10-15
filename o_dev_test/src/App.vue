@@ -64,28 +64,33 @@ const deleteUser = (userId: number): void => {
 
 <style>
 main {
-  max-width: 30em;
+  max-width: 30vh;
   margin: auto;
 }
 .container {
   display: flex;
+  justify-content: space-between;
 }
 .user input {
   border: 2px solid green;
-  min-height: 2em;
+  min-height: 2rem;
+  width: auto;
   margin: 5px;
   padding: 0 10px;
+}
+#userAgeId {
+  max-width: 2rem;
 }
 
 button {
   border: 2px solid green;
-  min-height: 2em;
+  min-height: 2rem;
   margin: 5px;
   background-color: white;
 }
 button:hover {
   border: 2px solid red;
-  min-height: 2em;
+  min-height: 2rem;
   margin: 5px;
   background-color: rgb(234, 234, 234);
 }

@@ -2,6 +2,7 @@
   <div class="container user">
     <input
       :value="name"
+      placeholder="Navn"
       type="text"
       name="userName"
       id="userNameId"
@@ -9,12 +10,13 @@
     />
     <input
       type="text"
+      placeholder="Alder"
       name="userAge"
       id="userAgeId"
       :value="age"
       @input="$emit('update:age', Number($event.target.value))"
     />
-    <button @click="deleteUser(id)" class="delete">Delete User</button>
+    <button @click="deleteUser(id)" class="delete">Slett Bruker</button>
   </div>
 </template>
 
