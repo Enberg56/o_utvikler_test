@@ -52,7 +52,8 @@ const fetchPersonListItems = () => {
 
 const savePersonListArray = () => {
   const data = JSON.stringify(users.value);
-  window.localStorage.setItem("usersFile", data);
+
+  // window.localStorage.setItem("usersFile", data);
   // console.log(JSON.parse(window.localStorage.getItem("usersFile")));
 };
 

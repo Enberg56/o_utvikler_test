@@ -1,15 +1,15 @@
 package com.o_dev_test_back.dev_test_back;
 
-public class Greeting {
+public class User {
 
   private final long id;
   private final String name;
   private final int age;
 
-  public Greeting(long id, String personName, int personAge) {
+  public User(long id, String name, int age) {
     this.id = id;
-    this.name = personName;
-    this.age = personAge;
+    this.name = name;
+    this.age = age;
   }
 
   public long getId() {
