@@ -38,13 +38,13 @@ const addInputFields = () => {
 };
 
 const fetchPersonListItems = () => {
-  fetch("https://jsonplaceholder.typicode.com/users")
+  fetch("http://localhost:8080/")
+    // fetch("https://jsonplaceholder.typicode.com/users")
     .then((res) => res.json())
     .then((res) => {
       loading.value = false;
       users.value = res;
       users.value.map((user: IUser) => {
-        user.age = Math.floor(Math.random() * 90);
         return user;
       });
     });
