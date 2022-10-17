@@ -6,7 +6,9 @@
       type="text"
       name="userName"
       id="userNameId"
-      @input="$emit('update:name', String($event.target.value))"
+      @input="
+        $emit('update:name', String(($event.target as HTMLInputElement).value))
+      "
     />
     <input
       type="text"
@@ -14,7 +16,9 @@
       name="userAge"
       id="userAgeId"
       :value="age"
-      @input="$emit('update:age', Number($event.target.value))"
+      @input="
+        $emit('update:age', Number(($event.target as HTMLInputElement).value))
+      "
     />
     <button @click="deleteUser(id)" class="delete">Slett Bruker</button>
   </div>
@@ -22,11 +26,8 @@
 
 <script setup lang="ts">
 import type { IUser } from "../interfaces/user";
-const props = defineProps<{
-  name: string;
-  id: number;
-  age: number | "";
-}>();
+defineProps<IUser>();
+
 const emit = defineEmits<{
   (e: "delete", id: number): void;
   (event: "update:name", payload: string): void;
